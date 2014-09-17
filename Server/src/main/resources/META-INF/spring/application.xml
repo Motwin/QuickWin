@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:osgix="http://www.eclipse.org/gemini/blueprint/schema/blueprint-compendium"
+	xmlns:vdb="http://central.motwin.net/schema/virtualdb"
+	xmlns:cm="http://www.springframework.org/schema/osgi-compendium"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+					 http://www.eclipse.org/gemini/blueprint/schema/blueprint-compendium http://www.eclipse.org/gemini/blueprint/schema/blueprint-compendium/gemini-blueprint-compendium-1.0.xsd
+					 http://central.motwin.net/schema/virtualdb http://central.motwin.net/schema/virtualdb.xsd
+					 http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium-1.2.xsd
+            		 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+					 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<cm:cm-properties id="environmentProperties"
+		persistent-id="salesforce" />
+
+	<context:property-placeholder
+		properties-ref="environmentProperties" ignore-unresolvable="true" />
+
+	<bean id="salesforceConnectionManager" class="com.motwin.connector.salesforce.partner.SalesforceConnectionManager">
+	    <constructor-arg value="${salesforce.login}" />
+	    <constructor-arg value="${salesforce.password}" />
+	    <constructor-arg value="${salesforce.consumerKey}" />
+	    <constructor-arg value="${salesforce.consumerSecret}" />
+	    <constructor-arg value="${salesforce.authEndPoint}" />
+	</bean>
+	
+
+	<vdb:source-poller id="AccountSource" fixed-delay="5"
+		time-unit="SECONDS">
+		<bean class="com.motwin.sample.AccountConnector">
+			<constructor-arg name="aConnectionManager"
+				ref="salesforceConnectionManager" />
+		</bean>
+	</vdb:source-poller>
+</beans>

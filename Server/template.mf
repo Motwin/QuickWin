@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ${project.name}
+Bundle-Version: ${project.version}
+Bundle-SymbolicName: ${project.groupId}.${project.artifactId}
+Import-Library:
+ com.motwin.sdk;version="[3.2.0,4.0)",
+ org.springframework.spring;version="[3.1.0,3.2.0)"
+Spring-Context: META-INF/spring/*.xml;wait-for-dependencies:=true;
+Import-Package:
+ com.fasterxml.jackson.core,
+ com.fasterxml.jackson.databind,
+ com.fasterxml.jackson.databind.node,
+ org.slf4j
+Import-Bundle: 
+ com.motwin.salesforce.wsc-osgi,
+ com.motwin.salesforce.salesforce-partner-osgi,
+ com.motwin.connector.salesforce.salesforce-connector

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Export-Package: com.motwin.sample;version="0.0.2.BUILD-SNAPSHOT"
+Import-Bundle: com.motwin.salesforce.wsc-osgi,com.motwin.salesforce.sa
+ lesforce-partner-osgi,com.motwin.connector.salesforce.salesforce-conn
+ ector
+Bundle-Version: 0.0.2.BUILD-SNAPSHOT
+Tool: Bundlor 1.1.1.RELEASE
+Bundle-Name: salesforce-sample
+Import-Library: com.motwin.sdk;version="[3.2.0,4.0)",org.springframewo
+ rk.spring;version="[3.1.0,3.2.0)"
+Spring-Context: META-INF/spring/*.xml;wait-for-dependencies:=true;
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.motwin.sample.salesforce-sample
+Import-Package: com.fasterxml.jackson.core,com.fasterxml.jackson.datab
+ ind,com.fasterxml.jackson.databind.node,com.motwin.connector.salesfor
+ ce.partner,org.slf4j
+

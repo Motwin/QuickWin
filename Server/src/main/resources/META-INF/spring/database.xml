@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:vdb="http://central.motwin.net/schema/virtualdb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://central.motwin.net/schema/virtualdb http://central.motwin.net/schema/virtualdb.xsd">
+
+	<import resource="classpath:META-INF/motwin/streamdata.xml" />
+	<vdb:virtualdb id="SalesforceSampleVirtualDB">
+		<vdb:table name="Account">
+			<vdb:schema>
+				<vdb:column name="SLAExpirationDate" type="string" />
+				<vdb:column name="SLASerialNumber" type="string" />
+				<vdb:column name="UpsellOpportunity" type="string" />
+				<vdb:column name="NumberofLocations" type="string" />
+				<vdb:column name="Active" type="string" />
+				<vdb:column name="SLA" type="string" />
+				<vdb:column name="CustomerPriority" type="string" />
+				<vdb:column name="SicDesc" type="string" />
+				<vdb:column name="AccountSource" type="string" />
+				<vdb:column name="JigsawCompanyId" type="string" />
+				<vdb:column name="Jigsaw" type="string" />
+				<vdb:column name="LastReferencedDate" type="string" />
+				<vdb:column name="LastViewedDate" type="string" />
+				<vdb:column name="LastActivityDate" type="string" />
+				<vdb:column name="SystemModstamp" type="string" />
+				<vdb:column name="LastModifiedById" type="string" />
+				<vdb:column name="LastModifiedDate" type="string" />
+				<vdb:column name="CreatedById" type="string" />
+				<vdb:column name="CreatedDate" type="string" />
+				<vdb:column name="OwnerId" type="string" />
+				<vdb:column name="Site" type="string" />
+				<vdb:column name="Rating" type="string" />
+				<vdb:column name="Description" type="string" />
+				<vdb:column name="TickerSymbol" type="string" />
+				<vdb:column name="Ownership" type="string" />
+				<vdb:column name="NumberOfEmployees" type="string" />
+				<vdb:column name="AnnualRevenue" type="string" />
+				<vdb:column name="Industry" type="string" />
+				<vdb:column name="Sic" type="string" />
+				<vdb:column name="Website" type="string" />
+				<vdb:column name="AccountNumber" type="string" />
+				<vdb:column name="Fax" type="string" />
+				<vdb:column name="Phone" type="string" />
+				<vdb:column name="ShippingAddress" type="string" />
+				<vdb:column name="BillingAddress" type="string" />
+				<vdb:column name="ParentId" type="string" />
+				<vdb:column name="Type" type="string" />
+				<vdb:column name="Name" type="string" />
+				<vdb:column name="MasterRecordId" type="string" />
+				<vdb:column name="IsDeleted" type="string" />
+				<vdb:column name="Id" type="string" part-of-key="true" />
+			</vdb:schema>
+			<vdb:source name="AccountSource" />
+		</vdb:table>
+	</vdb:virtualdb>
+</beans>
+
+
+
