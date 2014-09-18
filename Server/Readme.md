@@ -4,3 +4,8 @@ The connection to Salesforce requires OAuth2.0 authentication. To understand how
 
 In order to test Salesforce connection, you can use the following request : 
 curl --data "grant_type=password&client_id=CONSUMER_KEY&client_secret=CONSUMER_SECRET&username=USERNAME&password=PASSWORD" https://login.salesforce.com/services/oauth2/token
+
+Edit the salesforce.properties file to enter your credentials.
+
+The AccountConnector class shows how you can get data from Salesforce and wrap it into a Motwin virtual Table in order to provide real time incremental updates to client applications.
+
