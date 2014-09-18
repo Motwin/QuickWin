@@ -1,0 +1,44 @@
+<html>
+  <body>
+    <h1>Readme</h1>
+    
+    <h2>1. Description</h2>
+    
+    <p>This folder is exported from the Motwin IDE HTML5. It contains an XCode Project.</p>
+    
+    <h2>2. Usage</h2>
+    
+    <h3>2.1. Open the project using XCode</h3>
+    
+    <p>Mac OS X is required for the following steps.</p>
+    
+    <p>Ensure that XCode &gt; 5.0 is properly installed.</p>
+    
+    <p>Open the exported folder clicking on '&lt;project name&gt;.xcodeproj'.</p>
+
+    <h3>2.2. Change the HTML5 code source</h3>
+    
+    <p>Some changes are required to work with PhoneGap/Cordova:</p>
+    
+    <p>Edit <i>index.html</i> using a text editor.</p>
+    
+    <p>Import <i>cordova.js</i> adding a script tag to the into the head tag:</p>
+    
+    <pre>&lt;script type="text/javascript" charset="utf-8" src="cordova.js"&gt;&lt;/script&gt;</pre>
+    
+    <p>Import <i>cmotwin-cordova-support.js</i> adding a script tag to the into the head tag:</p>
+    
+    <pre>&lt;script type="text/javascript" charset="utf-8" src="path/to/motwin-cordova-support.js"&gt;&lt;/script&gt;</pre>
+    
+    <p>Edit <i>application.js</i> using a text editor.</p>
+        
+    <p>Replace the connection method from:</p>
+    
+    <pre>channel.connect();</pre>
+    
+    <p>to:</p>
+    
+    <pre>channel.useCordovaLifeCycle();</pre>
+    
+  </body>
+</html>

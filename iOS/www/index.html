@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>QuickWin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="libs/spreadsheets/jquery.mobile.css"
+	type="text/css" media="all" />
+<link rel="stylesheet" href="libs/spreadsheets/main.css" type="text/css"
+	media="all" />
+<link rel="stylesheet" href="libs/spreadsheets/styles.css"
+	type="text/css" media="all" />
+
+
+<!-- Import compatibility libraries for older browsers -->
+<script type='text/javascript' charset="utf-8"
+	src="libs/javascripts/ddr-ecma5.js"></script>
+<script type='text/javascript' charset="utf-8"
+	src="libs/javascripts/json2.js"></script>
+
+<!-- SockJS for http and https connectors -->
+<script type='text/javascript' charset="utf-8"
+	src="libs/javascripts/sockjs.js"></script>
+
+<!-- Cordova/PhoneGap for socket, zsocket, ssl and zssl connectors -->
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+<!-- jQuery provides the basic HTML/CSS library -->
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/jquery.js"></script>
+
+<!-- Knockout provides the data bindings between javascript and HTML/CSS -->
+<script type='text/javascript' charset="utf-8"
+	src='libs/javascripts/knockout.js'></script>
+
+<!-- Custom knockout bindings such as date formatter or background highlighter -->
+<script type='text/javascript' charset="utf-8"
+	src='libs/javascripts/knockout-bindings.js'></script>
+
+<!-- Motwin SDK -->
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/motwin-sdk.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/motwin-jquerymobile-support.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/motwin-knockout-support.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/motwin-cordova-support.js"></script>
+
+<!-- application (custom code) -->
+<script type="text/javascript" charset="utf-8" src="application.js"></script>
+
+<!-- jQuery mobile needs to be after the custom code -->
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="libs/javascripts/jquery.mobile.js"></script>
+
+<!-- remote debugger: type ":listen 45645415646456545976346" at jsconsole.com -->
+<!--script src="http://jsconsole.com/remote.js?45645415646456545976346"></script-->
+
+</head>
+<body>
+	<!-- PAGE: Account list -->
+	<div id="accountListPage" data-role="page">
+
+		<div data-role="header" data-position="fixed" data-theme="b"
+			data-tap-toggle="false">
+			<h1>Accounts</h1>
+		</div>
+
+		<div data-role="content" data-tap-toggle="false">
+			<ul id="table" data-role="listview" data-bind="foreach: accounts()"
+				data-theme="c" data-dividertheme="c">
+				<li data-corners="false" data-shadow="false" data-iconshadow="true"
+					data-wrapperels="div" data-iconpos="left" data-theme="f"
+					class="ui-li-has-icon ui-btn-up-c custom-background"><a> <span
+						data-bind="text: Name()" style="display: block; font-size: large"></span>
+						<span data-bind="text: Site()"
+						style="display: block; font-size: small"></span> <span
+						data-bind="text: BillingAddress()"
+						style="display: block; font-size: small"></span> <span
+						data-bind="text: Phone()" style="display: block; font-size: small"></span>
+						<span data-bind="text: Type()"
+						style="display: block; font-size: small"></span>
+				</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- PAGE: Account -->
+	<div id="accountPage" data-add-back-btn="true" data-role="page">
+
+		<div data-role="header" data-position="fixed" data-theme="b"
+			data-tap-toggle="false">
+			<h1>Account</h1>
+		</div>
+
+		<div data-role="content" data-bind="with: account()">
+			<h3 data-bind="text: Name()"></h3>
+			<table>
+				<tr><td>Rating: </td><td data-bind="text: Rating()"></td></tr>
+				<tr><td>Account Name: </td><td data-bind="text: Name()"></td></tr>
+				<tr><td>Phone: </td><td data-bind="text: Phone()"></td></tr>
+				<tr><td>Parent Account: </td><td data-bind="text: ParentId()"></td></tr>
+				<tr><td>Fax: </td><td data-bind="text: Fax()"></td></tr>
+				<tr><td>Account Number: </td><td data-bind="text: AccountNumber()"></td></tr>
+				<tr><td>Web Site: </td><td data-bind="text: Website()"></td></tr>
+				<tr><td>Site: </td><td data-bind="text: Site()"></td></tr>
+				<tr><td>Ticker Symbol: </td><td data-bind="text: TickerSymbol()"></td></tr>
+				<tr><td>Type: </td><td data-bind="text: Type()"></td></tr>
+				<tr><td>Ownership: </td><td data-bind="text: Ownership()"></td></tr>
+				<tr><td>Industry: </td><td data-bind="text: Industry()"></td></tr>
+				<tr><td>Employees: </td><td data-bind="text: NumberOfEmployees()"></td></tr>
+				<tr><td>Annual Revenue: </td><td data-bind="text: AnnualRevenue()"></td></tr>
+				<tr><td>SIC Code: </td><td data-bind="text: Sic()"></td></tr>
+				<tr><td>Billing Address: </td><td data-bind="text: BillingAddress()"></td></tr>
+				<tr><td>Shipping Address: </td><td data-bind="text: ShippingAddress()"></td></tr>
+				<tr><td>Customer Priority: </td><td data-bind="text: CustomerPriority()"></td></tr>
+				<tr><td>SLA Expiration Date: </td><td data-bind="text: SLAExpirationDate()"></td></tr>
+				<tr><td>Number of Locations: </td><td data-bind="text: NumberofLocations()"></td></tr>
+				<tr><td>SLA: </td><td data-bind="text: SLA()"></td></tr>
+				<tr><td>Upsell Opportunity: </td><td data-bind="text: UpsellOpportunity()"></td></tr>
+				<tr><td>Created by: </td><td <span data-bind="text: CreatedById()"></span> <span data-bind="text: CreatedDate()"></span></td></tr>
+				<tr><td>Last Modified By: </td><td data-bind="text: LastModifiedById()"></td></tr>
+				<tr><td>Description: </td><td data-bind="text: Description()"></td></tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
